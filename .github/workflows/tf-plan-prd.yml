@@ -24,5 +24,5 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - name: Terragrunt PRD Apply
-        run: echo "terragrunt run-all apply --terragrunt-non-interactive > Plan"
+      - name: Terragrunt PRD Plan
+        run: echo "Plan tf-plan-prd.yml"
