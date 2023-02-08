@@ -24,7 +24,7 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Install AWS CLI
-        run: echo "Rodar somente o plano"
+        run: echo "Rodar somente o plano Sandbox"
 
   Apply:
     if: github.event.review.state == 'approved'
