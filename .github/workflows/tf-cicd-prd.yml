@@ -2,8 +2,8 @@ name: Production
 
 on:
   pull_request:
-    branches-ignore:
-      - main
+    types:
+      - closed
   push:
     branches:
       - main
@@ -26,3 +26,20 @@ jobs:
 
       - name: Terragrunt PRD Plan
         run: echo "Plan tf-plan-prd.yml"
+  
+  terragrunt-apply:
+    if: github.event.pull_request.merged == true
+    name: "Apply"
+    needs: [terragrunt-plan]
+
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Terragrunt PRD Apply
+        run: echo "apenas merged > tf-apply-prd.yml"
