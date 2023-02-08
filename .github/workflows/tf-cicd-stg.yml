@@ -1,0 +1,45 @@
+name: Sandbox Pipeline
+
+on:
+  push:
+    branches-ignore:
+      - master
+  pull_request_review:
+    types: [submitted]
+
+env:
+
+jobs:
+  Plan:
+    name: "Plan Pipeline | Sandbox"
+    runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        shell: bash
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Install AWS CLI
+        run: echo "Rodar somente o plano"
+
+  Apply:
+    if: github.event.review.state == 'approved'
+    needs: [Plan]
+
+    name: "Apply Pipeline | Sandbox"
+    runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        shell: bash
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      # Install AWS CLI
+      - name: Install AWS CLI
+        run: echo "Rodar somente o APPLY"

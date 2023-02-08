@@ -1,0 +1,25 @@
+name: Production Pipeline > Plan
+
+on:
+  pull_request:
+    branches:
+      - master
+  push:
+    branches:
+      - master
+
+jobs:
+  terragrunt-plan:
+    name: "Plan Pipeline | Production"
+    runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        shell: bash
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Terragrunt PRD Apply
+        run: echo "terragrunt run-all apply --terragrunt-non-interactive > Plan Pipeline | Production"
