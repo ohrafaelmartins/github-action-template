@@ -1,11 +1,11 @@
 name: Sandbox Pipeline
 
 on:
-  push:
+  pull_request_review:
+    types:
+      - submitted
     branches-ignore:
       - master
-  pull_request_review:
-    types: [submitted]
 
 jobs:
   Plan:
