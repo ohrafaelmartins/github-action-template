@@ -7,6 +7,8 @@ on:
     branches-ignore:
       - main
 
+## env      
+
 jobs:
   Plan:
     name: "Plan"
@@ -20,10 +22,12 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - name: Install AWS CLI
-        run: echo "Rodar somente o plano Sandbox > tf-cicd-stg-review.yml"
+      - name: message
+        run: echo "staging development Plan"
 
   Apply:
+    # Running a workflow when a pull request is approved
+    # in this case, it will run on staging development
     if: github.event.review.state == 'approved'
     name: "Apply"
     runs-on: ubuntu-latest
@@ -37,5 +41,5 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - name: Install AWS CLI
-        run: echo "Rodar somente o APPLY após approved em Sandbox > tf-cicd-stg-review.yml"
+      - name: message
+        run: echo "staging development only PR is approved"
