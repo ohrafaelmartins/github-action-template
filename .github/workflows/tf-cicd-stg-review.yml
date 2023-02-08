@@ -6,9 +6,6 @@ on:
       - submitted
     branches-ignore:
       - master
-  push:
-    branches-ignore:
-      - master
 
 jobs:
   Plan:
