@@ -1,4 +1,4 @@
-name: Sandbox Pipeline
+name: Sandbox
 
 on:
   pull_request_review:
