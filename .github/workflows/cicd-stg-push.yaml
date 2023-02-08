@@ -1,0 +1,25 @@
+name: Sandbox
+
+# To automatically trigger a workflow, use `on`
+on:
+  push: # will run when a push is made 
+    branches-ignore:
+      - main # run automatically on all pushed commits in all branches except main
+
+## env
+
+jobs:
+  Plan:
+    name: "Plan"
+    runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        shell: bash
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: message
+        run: echo "staging development Plan"

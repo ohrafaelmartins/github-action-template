@@ -1,5 +1,7 @@
 name: Production
 
+## This template is to run exclusively in production environment
+
 on:
   pull_request:
     types:
@@ -11,8 +13,10 @@ on:
     types:
       - submitted
 
+## env
+
 jobs:
-  terragrunt-plan:
+  Plan:
     name: "Plan"
     runs-on: ubuntu-latest
 
@@ -24,13 +28,15 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - name: Terragrunt PRD Plan
-        run: echo "Plan tf-plan-prd.yml"
+      - name: message
+        run: echo "Production development when PR is closed or pull_request_review are submitted"
   
   terragrunt-apply:
+    # Running a workflow when a pull request is closed and merged
+    # in this case, it will run on production development
     if: github.event.pull_request.merged == true
     name: "Apply"
-    needs: [terragrunt-plan]
+    needs: [Plan]
 
     runs-on: ubuntu-latest
     defaults:
@@ -41,5 +47,5 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - name: Terragrunt PRD Apply
-        run: echo "APENAS MERGED > tf-apply-prd.yml"
+      - name: message
+        run: echo "Production development when PR request is closed and merged"
