@@ -1,14 +1,17 @@
 name: Production Pipeline > Apply
 
 on:
-  pull_request_review:
-    types: [submitted]
+  pull_request:
+    types:
+      - closed
+
   push:
     branches:
       - master
 
 jobs:
   terragrunt-plan:
+    if: github.event.pull_request.merged == true
     name: "Apply Pipeline | Production"
 
     runs-on: ubuntu-latest
@@ -21,4 +24,4 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Terragrunt PRD Apply
-        run: echo "terragrunt run-all apply --terragrunt-non-interactive > Apply Pipeline | Production"
+        run: echo "apenas merged > Apply Pipeline | Production"
