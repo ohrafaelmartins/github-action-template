@@ -40,4 +40,4 @@ jobs:
 
       # Install AWS CLI
       - name: Install AWS CLI
-        run: echo "Rodar somente o APPLY"
+        run: echo "Rodar somente o APPLY após approved em Sandbox"
