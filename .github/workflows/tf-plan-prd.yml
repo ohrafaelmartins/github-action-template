@@ -1,4 +1,4 @@
-name: Production Pipeline
+name: Production
 
 on:
   pull_request:
@@ -8,8 +8,8 @@ on:
     branches:
       - master
   pull_request_review:
-      types:
-        - submitted
+    types:
+      - submitted
 
 jobs:
   terragrunt-plan:
