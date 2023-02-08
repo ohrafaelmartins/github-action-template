@@ -3,10 +3,10 @@ name: Production
 on:
   pull_request:
     branches-ignore:
-      - master
+      - main
   push:
     branches:
-      - master
+      - main
   pull_request_review:
     types:
       - submitted
