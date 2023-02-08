@@ -1,0 +1,22 @@
+name: Sandbox Pipeline
+
+on:
+  push:
+    branches-ignore:
+      - master
+
+jobs:
+  Plan:
+    name: "Plan"
+    runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        shell: bash
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Install AWS CLI
+        run: echo "Rodar somente o plano Sandbox"
