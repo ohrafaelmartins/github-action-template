@@ -25,8 +25,6 @@ jobs:
 
   Apply:
     if: github.event.review.state == 'approved'
-    needs: [Plan]
-
     name: "Apply Pipeline | Sandbox"
     runs-on: ubuntu-latest
 
