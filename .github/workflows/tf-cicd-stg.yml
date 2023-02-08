@@ -6,9 +6,6 @@ on:
       - submitted
     branches-ignore:
       - master
-  push:
-    branches-ignore:
-      - master
 
 jobs:
   Plan:
@@ -30,6 +27,7 @@ jobs:
     if: github.event.review.state == 'approved'
     name: "Apply Pipeline | Sandbox"
     runs-on: ubuntu-latest
+    needs: [Plan]
 
     defaults:
       run:
@@ -39,6 +37,5 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-      # Install AWS CLI
       - name: Install AWS CLI
         run: echo "Rodar somente o APPLY após approved em Sandbox"
