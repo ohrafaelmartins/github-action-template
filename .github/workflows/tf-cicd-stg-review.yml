@@ -21,7 +21,7 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Install AWS CLI
-        run: echo "Rodar somente o plano Sandbox"
+        run: echo "Rodar somente o plano Sandbox > tf-cicd-stg-review.yml"
 
   Apply:
     if: github.event.review.state == 'approved'
@@ -38,4 +38,4 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Install AWS CLI
-        run: echo "Rodar somente o APPLY após approved em Sandbox"
+        run: echo "Rodar somente o APPLY após approved em Sandbox > tf-cicd-stg-review.yml"
