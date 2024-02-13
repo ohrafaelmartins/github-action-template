@@ -19,3 +19,11 @@ It was thought to help in the first configuration by isolating what is exclusive
 
 ## Feel free to suggest changes.
 
+
+# github-action-template
+
+### Objetivo do Projeto
+
+Este repositório é um modelo a ser utilizado no GitHub Actions.
+
+Ele foi pensado para auxiliar na configuração inicial, isolando o que é exclusivo para o ramo principal e os demais.
